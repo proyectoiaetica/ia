@@ -122,29 +122,45 @@
         </section>
 
         <!-- Sección de Contacto -->
-        <section id="contacto" class="container mt-5 mb-5">
-            <h2 class="section-title text-center">Contacto</h2>
-            <p class="text-center">¿Tienes preguntas o sugerencias? ¡Contáctanos!</p>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form>
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                    </form>
+<!-- Sección de Contacto -->
+<section id="contacto" class="container mt-5 mb-5">
+    <h2 class="section-title text-center">Contacto</h2>
+    <p class="text-center">¿Tienes preguntas o sugerencias? ¡Contáctanos!</p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" required>
                 </div>
-            </div>
-        </section>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="sendEmail()">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendEmail() {
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        const subject = encodeURIComponent('Contacto desde AI Ethica');
+        const body = encodeURIComponent(`Hola, soy ${nombre}.\n\n${mensaje}`);
+        const mailtoLink = `mailto:proyectoiaetica@gmail.com?subject=${subject}&body=${body}&from=${email}`;
+
+        window.location.href = mailtoLink;
+    }
+</script>
+
     </main>
 
     <!-- Bootstrap JS y dependencias -->
