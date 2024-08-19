@@ -65,8 +65,57 @@
         .feature-box:hover {
             transform: translateY(-5px);
         }
+        
+        
+        
+                /* Estilo para la burbuja movible */
+        .notification-bubble {
+            position: fixed;
+            bottom: 43px; /* Ajusta la distancia desde la parte inferior */
+            right: 35px; /* Ajusta la distancia desde la parte derecha */
+            background-color: #007bff; /* Color de fondo azul web */
+            color: #ffffff; /* Color del texto blanco */
+            padding: 10px 15px;
+            border-radius: 50%; /* Hace que la burbuja sea circular */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: -1; /* Asegura que esté detrás de todos los demás elementos */
+            user-select: none; /* Evita que el texto se seleccione al arrastrar */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centra el contenido dentro del círculo */
+            cursor: pointer; /* Cambia el cursor al pasar sobre la burbuja */
+            font-size: 14px;
+            width: 60px; /* Ajusta el tamaño del círculo */
+            height: 60px; /* Ajusta el tamaño del círculo */
+            text-align: center; /* Centra el texto */
+        }
+
+        /* Animación para el pulso de la burbuja */
+        .animate-bubble {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
     </style>
 </head>
+
+    <!-- Burbuja de notificación -->
+    <div id="notification-bubble" class="notification-bubble animate-bubble">
+    </div>
 
 <body>
     <!-- Navbar -->
@@ -433,6 +482,8 @@
 <!-- v2 bot-->
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/3c80ec73-465f-4ec3-8502-f31a16d28d87/webchat/config.js" defer></script>
+
+
 
 <!--
         <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
