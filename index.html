@@ -205,16 +205,17 @@
     recursos.forEach(recurso => {
         const recursoHTML = `
             <div class="col-md-4 mb-4">
-                <div class="feature-box" ${recurso.enlace ? `onclick="window.open('${recurso.enlace}', '_blank')"` : (recurso.alertaMensaje ? `onclick="showAlert('${recurso.alertaTitulo}', '${recurso.alertaMensaje.replace(/'/g, "\\'")}')"` : '')}>
+                <div class="feature-box" ${recurso.enlace ? `onclick="window.location.href='${recurso.enlace}'"` : (recurso.alertaMensaje ? `onclick="showAlert('${recurso.alertaTitulo}', '${recurso.alertaMensaje.replace(/'/g, "\\'")}')"` : '')}>
                     <h3>${recurso.titulo}</h3>
                     <p>${recurso.descripcion}</p>
-                    ${recurso.enlace ? `<a href="${recurso.enlace}" target="_blank">${recurso.enlace}</a>` : ''}
+                    ${recurso.enlace ? `<a href="${recurso.enlace}" target="_self">${recurso.enlace}</a>` : ''}
                 </div>
             </div>
         `;
         recursosContainer.innerHTML += recursoHTML;
     });
 </script>
+
 
 
 
