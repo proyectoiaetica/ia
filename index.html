@@ -156,118 +156,161 @@
 </section>
 
 
-        <!-- Sección de Recursos -->
-        <section id="recursos" class="container mt-5">
-            <h2 class="section-title text-center">Recursos</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-<div class="feature-box" onclick="showAlert('**Bienvenidos al tutorial sobre cómo citar correctamente el uso de herramientas de inteligencia artificial en sus trabajos académicos.** En este módulo, aprenderán la importancia de reconocer y citar adecuadamente las contribuciones de las tecnologías de IA a sus investigaciones y proyectos.\n\nObjetivos del Tutorial:\n- Comprender por qué es crucial citar las herramientas de IA.\n- Aprender los formatos de citación para diferentes estilos (APA, Vancouver, Chicago).\n- Aplicar estas prácticas en trabajos académicos para mantener la integridad académica.', '')">
-    <h3>Tutoriales de Uso Ético</h3>
-                        <p>La aplicación proporciona tutoriales interactivos y material educativo que enseñan cómo utilizar la inteligencia artificial de manera ética en el contexto académico. Esto incluye guías sobre cómo citar correctamente el uso de herramientas de IA en investigaciones, trabajos, y proyectos.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box" onclick="showAlert('Directorio de Recursos de IA', 'AI Ethica ofrece un directorio de URLs hacia herramientas y plataformas de inteligencia artificial que han sido cuidadosamente seleccionadas por su fiabilidad y legitimidad. Este directorio se actualiza regularmente para incluir las últimas y más innovadoras herramientas que pueden ser utilizadas para fines académicos sin comprometer la integridad.')">
-                        <h3>Directorio de Recursos de IA</h3>
-                        <p>AI Ethica ofrece un directorio de URLs hacia herramientas y plataformas de inteligencia artificial que han sido cuidadosamente seleccionadas por su fiabilidad y legitimidad. Este directorio se actualiza regularmente para incluir las últimas y más innovadoras herramientas que pueden ser utilizadas para fines académicos sin comprometer la integridad.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box" onclick="showAlert('Evaluación y Reflexión', 'Un breve cuestionario para evaluar tu comprensión del material y una sección de reflexión sobre cómo el uso ético y la citación correcta de herramientas de IA pueden influir positivamente en la integridad académica. https://forms.gle/4FY4x57gLB3rx16M9')">
-                        <h3>Evaluación y Reflexión</h3>
-                        <p>Un breve cuestionario para evaluar tu comprensión del material y una sección de reflexión sobre cómo el uso ético y la citación correcta de herramientas de IA pueden influir positivamente en la integridad académica.</p>
-<a href="https://forms.gle/4FY4x57gLB3rx16M9">https://forms.gle/4FY4x57gLB3rx16M9</a>
-                    </div>
-                </div>
+<!-- Sección de Recursos -->
+<section id="recursos" class="container mt-5">
+    <h2 class="section-title text-center">Recursos</h2>
+    <div class="row" id="recursos-container"></div>
+</section>
 
+<script>
+    function showAlert(title, text) {
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: 'info',
+            confirmButtonText: 'Cerrar',
+            customClass: {
+                confirmButton: 'btn btn-primary'
+            },
+            buttonsStyling: false
+        });
+    }
 
+    const recursos = [
+        {
+            titulo: "Tutoriales de Uso Ético",
+            descripcion: "La aplicación proporciona tutoriales interactivos y material educativo que enseñan cómo utilizar la inteligencia artificial de manera ética en el contexto académico. Esto incluye guías sobre cómo citar correctamente el uso de herramientas de IA en investigaciones, trabajos, y proyectos.",
+            alertaTitulo: "Tutoriales de Uso Ético",
+            alertaMensaje: "Accede a guías y tutoriales sobre cómo utilizar la inteligencia artificial de manera ética en el ámbito académico. Aprende sobre la correcta citación de herramientas de IA en tus trabajos.",
+            enlace: ""
+        },
+        {
+            titulo: "Directorio de Recursos de IA",
+            descripcion: "AI Ethica ofrece un directorio de URLs hacia herramientas y plataformas de inteligencia artificial que han sido cuidadosamente seleccionadas por su fiabilidad y legitimidad. Este directorio se actualiza regularmente para incluir las últimas y más innovadoras herramientas que pueden ser utilizadas para fines académicos sin comprometer la integridad.",
+            alertaTitulo: "Directorio de Recursos de IA",
+            alertaMensaje: "Consulta el directorio de herramientas de inteligencia artificial recomendadas para fines académicos. Las herramientas están seleccionadas por su fiabilidad y se actualizan regularmente.",
+            enlace: ""
+        },
+        {
+            titulo: "Evaluación y Reflexión",
+            descripcion: "Un breve cuestionario para evaluar tu comprensión del material y una sección de reflexión sobre cómo el uso ético y la citación correcta de herramientas de IA pueden influir positivamente en la integridad académica.",
+            alertaTitulo: "Evaluación y Reflexión",
+            alertaMensaje: "Participa en un cuestionario para evaluar tu comprensión del material sobre el uso ético de IA. Reflexiona sobre cómo la correcta citación puede influir en la integridad académica.",
+            enlace: "https://forms.gle/4FY4x57gLB3rx16M9"
+        }
+    ];
 
+    const recursosContainer = document.getElementById('recursos-container');
+
+    recursos.forEach(recurso => {
+        const recursoHTML = `
+            <div class="col-md-4 mb-4">
+                <div class="feature-box" ${recurso.enlace ? `onclick="window.open('${recurso.enlace}', '_blank')"` : (recurso.alertaMensaje ? `onclick="showAlert('${recurso.alertaTitulo}', '${recurso.alertaMensaje.replace(/'/g, "\\'")}')"` : '')}>
+                    <h3>${recurso.titulo}</h3>
+                    <p>${recurso.descripcion}</p>
+                    ${recurso.enlace ? `<a href="${recurso.enlace}" target="_blank">${recurso.enlace}</a>` : ''}
+                </div>
             </div>
-        </section>
+        `;
+        recursosContainer.innerHTML += recursoHTML;
+    });
+</script>
+
+
 
 <!-- Sección de Noticias -->
 <section id="noticias" class="container mt-5">
     <h2 class="section-title text-center">Noticias 📰</h2>
-    <div class="row">
-        <!-- Noticia 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="feature-box">
-                <h3>Normas APA y la Inteligencia Artificial: Adaptación y Desafíos 🤖</h3>
-                <p>Recientemente, se ha discutido la necesidad de adaptar las normas APA para incorporar el uso de inteligencia artificial en la investigación académica. Expertos sugieren que las citas y referencias deben actualizarse para reflejar el rol de las herramientas de IA en la generación y análisis de datos.</p>
-                <a href="https://www.ejemplo.com/noticia1" class="btn btn-primary">Leer más 📖</a>
-            </div>
-        </div>
-        <!-- Noticia 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="feature-box">
-                <h3>La Innovación en la Escritura Académica: Impacto de las Herramientas de IA 💡</h3>
-                <p>Las herramientas de inteligencia artificial están revolucionando la escritura académica al proporcionar asistencia en la redacción y la organización de trabajos. La integración de estas herramientas en los procesos académicos plantea nuevas oportunidades y retos en la adherencia a las normas de citación y el plagio.</p>
-                <a href="https://www.ejemplo.com/noticia2" class="btn btn-primary">Leer más ✍️</a>
-            </div>
-        </div>
-        <!-- Noticia 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="feature-box">
-                <h3>Normas Éticas para el Uso de IA en la Investigación Académica 📜</h3>
-                <p>Las instituciones académicas están desarrollando nuevas directrices para asegurar que el uso de inteligencia artificial en la investigación siga normas éticas rigurosas. Estas directrices buscan garantizar que las herramientas de IA se utilicen de manera responsable y que se mantenga la integridad académica.</p>
-                <a href="https://www.ejemplo.com/noticia3" class="btn btn-primary">Leer más 🧐</a>
-            </div>
-        </div>
-    </div>
+    <div class="row" id="noticias-container"></div>
 </section>
 
+<script>
+    const noticias = [
+        {
+            titulo: "Inteligencia Artificial en la Educación Superior: Un Modelo Predictivo para el Rendimiento Académico 🎓",
+            descripcion: "Un estudio en la Universidad de Guayaquil ha diseñado un modelo predictivo basado en IA para anticipar el rendimiento académico de los estudiantes. Los resultados muestran que factores como la edad, el tiempo de estudio y el uso de herramientas de IA tienen un impacto significativo y directo en el rendimiento de los estudiantes.",
+            doi: "https://doi.org/10.3390/educsci13111109"
+        },
+        {
+            titulo: "Inteligencia Artificial Generativa: Implicaciones para la Educación Superior 🧠",
+            descripcion: "La Inteligencia Artificial Generativa (GAI) está transformando la educación superior, ofreciendo tanto desafíos como oportunidades. Este artículo analiza el impacto de la GAI en el trabajo académico, con un enfoque especial en los estudiantes internacionales, y discute la importancia de la alfabetización en IA y las consideraciones éticas en su adopción.",
+            doi: "https://doi.org/10.3390/educsci13111109"
+        },
+        {
+            titulo: "Integridad Académica a Nivel Doctoral: Influencias Culturales y el Fenómeno del Impostor 📜",
+            descripcion: "Este artículo revisa cómo la integridad académica, más que una norma a imponer, debe ser vista como una habilidad a desarrollar. Se propone que la academia fomente un entorno donde se apoye el desarrollo de habilidades de integridad académica, especialmente entre estudiantes de doctorado que experimentan el fenómeno del impostor.",
+            doi: "https://doi.org/10.1007/s40979-021-00074-w"
+        }
+    ];
+
+    const noticiasContainer = document.getElementById('noticias-container');
+
+    noticias.forEach(noticia => {
+        const noticiaHTML = `
+            <div class="col-md-4 mb-4">
+                <div class="feature-box">
+                    <h3>
+                        <a href="${noticia.doi}" class="text-decoration-none text-dark">${noticia.titulo}</a>
+                    </h3>
+                    <p>${noticia.descripcion}</p>
+                    <p><strong>DOI:</strong> <a href="${noticia.doi}">${noticia.doi}</a></p>
+                    <a href="${noticia.doi}" class="btn btn-primary">Leer más 📖</a>
+                </div>
+            </div>
+        `;
+        noticiasContainer.innerHTML += noticiaHTML;
+    });
+</script>
+
+<!-- Fin sección de Noticias -->
 
 
 
 <!-- Sección de Preguntas Frecuentes -->
 <section id="faq" class="container mt-5 mb-5">
     <h2 class="section-title text-center">Preguntas Frecuentes (FAQ)</h2>
-    <div class="accordion" id="faqAccordion">
-        <div class="card mb-3">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        ¿Cómo cambia mi percepción de la investigación académica al considerar la importancia de citar adecuadamente las herramientas de IA?
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Considerar la importancia de citar adecuadamente las herramientas de IA cambia tu percepción de la investigación académica al resaltar la necesidad de transparencia y honestidad. Citar correctamente asegura que se reconozca el papel de las herramientas tecnológicas en el proceso de investigación, promoviendo un entorno académico más confiable y respetuoso. La transparencia en el uso de la IA refuerza la credibilidad del trabajo académico y fomenta la confianza entre investigadores.
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        ¿De qué manera puede el uso responsable de la IA influir en la construcción de conocimiento dentro de mi campo de estudio?
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
-                <div class="card-body">
-                    El uso responsable de la IA puede influir positivamente en la construcción de conocimiento dentro de tu campo de estudio al proporcionar herramientas avanzadas para el análisis y la interpretación de datos. Al reconocer adecuadamente las contribuciones de la IA, puedes fomentar innovaciones y descubrimientos responsables, asegurando que la tecnología se utilice como un complemento ético a la investigación humana. Esto ayuda a avanzar en el conocimiento mientras se mantiene el rigor académico.
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        ¿Cuál es el valor de mantener la integridad académica en la era de la tecnología avanzada?
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
-                <div class="card-body">
-                    Mantener la integridad académica en la era de la tecnología avanzada es crucial para enfrentar los desafíos y oportunidades que presentan las herramientas de IA. La integridad académica garantiza que el uso de la tecnología se realice de manera ética, respetando las normas de citación y evitando el plagio. Tu compromiso con la ética no solo refuerza tu credibilidad como académico, sino que también contribuye positivamente a tu comunidad académica y al desarrollo responsable de la tecnología.
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="accordion" id="faqAccordion"></div>
 </section>
+
+<script>
+    const faqs = [
+        {
+            pregunta: "¿Cómo cambia mi percepción de la investigación académica al considerar la importancia de citar adecuadamente las herramientas de IA?",
+            respuesta: "Considerar la importancia de citar adecuadamente las herramientas de IA cambia tu percepción de la investigación académica al resaltar la necesidad de transparencia y honestidad. Citar correctamente asegura que se reconozca el papel de las herramientas tecnológicas en el proceso de investigación, promoviendo un entorno académico más confiable y respetuoso. La transparencia en el uso de la IA refuerza la credibilidad del trabajo académico y fomenta la confianza entre investigadores."
+        },
+        {
+            pregunta: "¿De qué manera puede el uso responsable de la IA influir en la construcción de conocimiento dentro de mi campo de estudio?",
+            respuesta: "El uso responsable de la IA puede influir positivamente en la construcción de conocimiento dentro de tu campo de estudio al proporcionar herramientas avanzadas para el análisis y la interpretación de datos. Al reconocer adecuadamente las contribuciones de la IA, puedes fomentar innovaciones y descubrimientos responsables, asegurando que la tecnología se utilice como un complemento ético a la investigación humana. Esto ayuda a avanzar en el conocimiento mientras se mantiene el rigor académico."
+        },
+        {
+            pregunta: "¿Cuál es el valor de mantener la integridad académica en la era de la tecnología avanzada?",
+            respuesta: "Mantener la integridad académica en la era de la tecnología avanzada es crucial para enfrentar los desafíos y oportunidades que presentan las herramientas de IA. La integridad académica garantiza que el uso de la tecnología se realice de manera ética, respetando las normas de citación y evitando el plagio. Tu compromiso con la ética no solo refuerza tu credibilidad como académico, sino que también contribuye positivamente a tu comunidad académica y al desarrollo responsable de la tecnología."
+        }
+    ];
+
+    const faqAccordion = document.getElementById('faqAccordion');
+
+    faqs.forEach((faq, index) => {
+        const faqHTML = `
+            <div class="card mb-3">
+                <div class="card-header" id="heading${index}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left ${index === 0 ? '' : 'collapsed'}" type="button" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="collapse${index}">
+                            ${faq.pregunta}
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse${index}" class="collapse ${index === 0 ? 'show' : ''}" aria-labelledby="heading${index}" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        ${faq.respuesta}
+                    </div>
+                </div>
+            </div>
+        `;
+        faqAccordion.innerHTML += faqHTML;
+    });
+</script>
+
 
 <!-- Bootstrap JS y dependencias -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -306,15 +349,7 @@
         <section id="discusion2" class="container mt-5 mb-5">
 <div id="disqus_thread"></div>
 <script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
+
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = 'https://https-proyectoiaetica-github-io-ia-2.disqus.com/embed.js';
@@ -364,18 +399,7 @@
                 window.location.href = mailtoLink;
             }
 
-            function showAlert(title, text) {
-                Swal.fire({
-                    title: title,
-                    text: text,
-                    icon: 'info',
-                    confirmButtonText: 'Cerrar',
-                    customClass: {
-                        confirmButton: 'btn btn-primary'
-                    },
-                    buttonsStyling: false
-                });
-            }
+
         </script>
         
         <!-- Footer -->
@@ -468,36 +492,11 @@
         <!-- SweetAlert2 JS -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <!--
-        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-        <df-messenger
-            intent="WELCOME"
-            chat-title="IA_ETHICA"
-            agent-id="9a90f559-1b2c-42dd-8db4-dbada6a569c4"
-            language-code="es">
-        </df-messenger>
-        -->
 
-       <!-- v1 bot
-        <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/ee454527-b7cd-4646-a2f5-f4f476872779/webchat/config.js" defer></script>
-        -->
 <!-- v2 bot-->
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/3c80ec73-465f-4ec3-8502-f31a16d28d87/webchat/config.js" defer></script>
 
-
-
-<!--
-        <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/ee454527-b7cd-4646-a2f5-f4f476872779/webchat/v2/config.js"></script>
- -->
-  
-        <!-- Scripts del widget de chat en el <head> -->
-<!--
-  <script src="https://cdn.botpress.cloud/webchat/v2/inject.js"></script>
-  <script src="https://mediafiles.botpress.cloud/ee454527-b7cd-4646-a2f5-f4f476872779/webchat/v2/config.js"></script>
--->
         
     </main>
 </body>
