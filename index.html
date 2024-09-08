@@ -141,54 +141,39 @@
     <div id="notification-bubble" class="notification-bubble animate-bubble">
     </div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="https://proyectoiaetica.github.io/ia/">AI Ethica</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-target="">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#recursos" data-target="#recursos">Recursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#noticias" data-target="#noticias">Noticias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#faq" data-target="#faq">Preguntas Frecuentes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#discusion" data-target="#discusion">Discusión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contacto" data-target="#contacto">Contacto</a>
-                </li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://proyectoiaetica.github.io/ia/">AI Ethica</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#recursos">Recursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#noticias">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#faq">Preguntas Frecuentes</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#discusion">Discusion</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#contacto">Contacto</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
-<!-- JavaScript -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.nav-link').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault(); // Previene el comportamiento predeterminado
-                var target = this.getAttribute('data-target');
-                var url = 'https://proyectoiaetica.github.io/ia/' + target;
-                window.location.href = url; // Redirige con recarga completa
-            });
-        });
-    });
-</script>
-
-
+    </nav>
 
     <!-- Contenido principal -->
     <main role="main">
