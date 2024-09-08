@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     
     <!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
 
     <!-- Estilos personalizados -->
     <style>
@@ -66,9 +66,7 @@
             transform: translateY(-5px);
         }
         
-        
-        
-                /* Estilo para la burbuja movible */
+        /* Estilo para la burbuja movible */
         .notification-bubble {
             position: fixed;
             bottom: 43px; /* Ajusta la distancia desde la parte inferior */
@@ -109,15 +107,40 @@
                 opacity: 1;
             }
         }
-        
+
+        .card-header {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .btn-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card-body {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 
+<body>
     <!-- Burbuja de notificación -->
     <div id="notification-bubble" class="notification-bubble animate-bubble">
     </div>
 
-<body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container">
@@ -135,8 +158,18 @@
                         <a class="nav-link" href="#recursos">Recursos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#noticias">Noticias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">Preguntas Frecuentes</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#discusion">Discusion</a>
+                    </li>                    
+                    <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -144,78 +177,75 @@
 
     <!-- Contenido principal -->
     <main role="main">
-<!-- Jumbotron -->
-<section id="inicio" class="jumbotron text-center">
-    <div class="container">
-        <h1 class="display-4">AI Ethica</h1>
-        <p class="lead">Fomentando la Integridad Académica con IA Ética</p>
-        <hr class="my-4">
-        <p class="lead">Objetivo:<br>
-        El objetivo principal de AI Ethica es empoderar a los estudiantes universitarios para que utilicen la inteligencia artificial de manera responsable y ética, garantizando que su trabajo académico se realice con integridad, respetando los derechos de autor y promoviendo la originalidad.</p>
-    </div>
-</section>
-
-
-<!-- Sección de Recursos -->
-<section id="recursos" class="container mt-5">
-    <h2 class="section-title text-center">Recursos</h2>
-    <div class="row" id="recursos-container"></div>
-</section>
-
-<script>
-    function showAlert(title, text) {
-        Swal.fire({
-            title: title,
-            text: text,
-            icon: 'info',
-            confirmButtonText: 'Cerrar',
-            customClass: {
-                confirmButton: 'btn btn-primary'
-            },
-            buttonsStyling: false
-        });
-    }
-
-    const recursos = [
-        {
-            titulo: "Tutoriales de Uso Ético",
-            descripcion: "La aplicación proporciona tutoriales interactivos y material educativo que enseñan cómo utilizar la inteligencia artificial de manera ética en el contexto académico. Esto incluye guías sobre cómo citar correctamente el uso de herramientas de IA en investigaciones, trabajos, y proyectos.",
-            alertaTitulo: "Tutoriales de Uso Ético",
-            alertaMensaje: "Accede a guías y tutoriales sobre cómo utilizar la inteligencia artificial de manera ética en el ámbito académico. Aprende sobre la correcta citación de herramientas de IA en tus trabajos.",
-            enlace: ""
-        },
-        {
-            titulo: "Directorio de Recursos de IA",
-            descripcion: "AI Ethica ofrece un directorio de URLs hacia herramientas y plataformas de inteligencia artificial que han sido cuidadosamente seleccionadas por su fiabilidad y legitimidad. Este directorio se actualiza regularmente para incluir las últimas y más innovadoras herramientas que pueden ser utilizadas para fines académicos sin comprometer la integridad.",
-            alertaTitulo: "Directorio de Recursos de IA",
-            alertaMensaje: "Consulta el directorio de herramientas de inteligencia artificial recomendadas para fines académicos. Las herramientas están seleccionadas por su fiabilidad y se actualizan regularmente.",
-            enlace: ""
-        },
-        {
-            titulo: "Evaluación y Reflexión",
-            descripcion: "Un breve cuestionario para evaluar tu comprensión del material y una sección de reflexión sobre cómo el uso ético y la citación correcta de herramientas de IA pueden influir positivamente en la integridad académica.",
-            alertaTitulo: "Evaluación y Reflexión",
-            alertaMensaje: "Participa en un cuestionario para evaluar tu comprensión del material sobre el uso ético de IA. Reflexiona sobre cómo la correcta citación puede influir en la integridad académica.",
-            enlace: "https://forms.gle/4FY4x57gLB3rx16M9"
-        }
-    ];
-
-    const recursosContainer = document.getElementById('recursos-container');
-
-    recursos.forEach(recurso => {
-        const recursoHTML = `
-            <div class="col-md-4 mb-4">
-                <div class="feature-box" ${recurso.enlace ? `onclick="window.location.href='${recurso.enlace}'"` : (recurso.alertaMensaje ? `onclick="showAlert('${recurso.alertaTitulo}', '${recurso.alertaMensaje.replace(/'/g, "\\'")}')"` : '')}>
-                    <h3>${recurso.titulo}</h3>
-                    <p>${recurso.descripcion}</p>
-                    ${recurso.enlace ? `<a href="${recurso.enlace}" target="_self">${recurso.enlace}</a>` : ''}
-                </div>
+        <!-- Jumbotron -->
+        <section id="inicio" class="jumbotron text-center">
+            <div class="container">
+                <h1 class="display-4">AI Ethica</h1>
+                <p class="lead">Fomentando la Integridad Académica con IA Ética</p>
+                <hr class="my-4">
+                <p class="lead">Objetivo:<br>
+                El objetivo principal de AI Ethica es empoderar a los estudiantes universitarios para que utilicen la inteligencia artificial de manera responsable y ética, garantizando que su trabajo académico se realice con integridad, respetando los derechos de autor y promoviendo la originalidad.</p>
             </div>
-        `;
-        recursosContainer.innerHTML += recursoHTML;
-    });
-</script>
+        </section>
 
+        <!-- Sección de Recursos -->
+        <section id="recursos" class="container mt-5">
+            <h2 class="section-title text-center">Recursos</h2>
+            <div class="row" id="recursos-container"></div>
+        </section>
+
+        <script>
+            function showAlert(title, text) {
+                Swal.fire({
+                    title: title,
+                    text: text,
+                    icon: 'info',
+                    confirmButtonText: 'Cerrar',
+                    customClass: {
+                        confirmButton: 'btn btn-primary'
+                    },
+                    buttonsStyling: false
+                });
+            }
+
+            const recursos = [
+                {
+                    titulo: "Tutoriales de Uso Ético",
+                    descripcion: "La aplicación proporciona tutoriales interactivos y material educativo que enseñan cómo utilizar la inteligencia artificial de manera ética en el contexto académico. Esto incluye guías sobre cómo citar correctamente el uso de herramientas de IA en investigaciones, trabajos, y proyectos.",
+                    alertaTitulo: "Tutoriales de Uso Ético",
+                    alertaMensaje: "Accede a guías y tutoriales sobre cómo utilizar la inteligencia artificial de manera ética en el ámbito académico. Aprende sobre la correcta citación de herramientas de IA en tus trabajos.",
+                    enlace: ""
+                },
+                {
+                    titulo: "Directorio de Recursos de IA",
+                    descripcion: "AI Ethica ofrece un directorio de URLs hacia herramientas y plataformas de inteligencia artificial que han sido cuidadosamente seleccionadas por su fiabilidad y legitimidad. Este directorio se actualiza regularmente para incluir las últimas y más innovadoras herramientas que pueden ser utilizadas para fines académicos sin comprometer la integridad.",
+                    alertaTitulo: "Directorio de Recursos de IA",
+                    alertaMensaje: "Consulta el directorio de herramientas de inteligencia artificial recomendadas para fines académicos. Las herramientas están seleccionadas por su fiabilidad y se actualizan regularmente.",
+                    enlace: ""
+                },
+                {
+                    titulo: "Evaluación y Reflexión",
+                    descripcion: "Un breve cuestionario para evaluar tu comprensión del material y una sección de reflexión sobre cómo el uso ético y la citación correcta de herramientas de IA pueden influir positivamente en la integridad académica.",
+                    alertaTitulo: "Evaluación y Reflexión",
+                    alertaMensaje: "Participa en un cuestionario para evaluar tu comprensión del material sobre el uso ético de IA. Reflexiona sobre cómo la correcta citación puede influir en la integridad académica.",
+                    enlace: "https://forms.gle/4FY4x57gLB3rx16M9"
+                }
+            ];
+
+            const recursosContainer = document.getElementById('recursos-container');
+
+            recursos.forEach(recurso => {
+                const recursoHTML = `
+                    <div class="col-md-4 mb-4">
+                        <div class="feature-box" onclick="showAlert('${recurso.alertaTitulo}', '${recurso.alertaMensaje}')">
+                            <h4>${recurso.titulo}</h4>
+                            <p>${recurso.descripcion}</p>
+                        </div>
+                    </div>
+                `;
+                recursosContainer.innerHTML += recursoHTML;
+            });
+        </script>
 
 <!-- Sección de Noticias -->
 <section id="noticias" class="container mt-5">
@@ -308,41 +338,6 @@
     });
 </script>
 
-
-<!-- Bootstrap JS y dependencias -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Estilos personalizados -->
-<style>
-    .card-header {
-        background-color: #343a40;
-        color: white;
-    }
-
-    .btn-link {
-        color: white;
-        text-decoration: none;
-    }
-
-    .btn-link:hover {
-        color: #f8f9fa;
-        text-decoration: none;
-    }
-
-    .card {
-        background-color: #ffffff;
-        border: none;
-        border-radius: 0.5rem;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    }
-
-    .card-body {
-        background-color: #f8f9fa;
-    }
-</style>
-
 <!-- Sección de discusion -->
 <section id="discusion" class="container mt-5 mb-5">
     <h2 class="section-title text-center">Foro de Discusión</h2>
@@ -378,7 +373,7 @@
 
 </section>
 
-        <!-- Sección de Contacto -->
+    <!-- Sección de Contacto -->
         <section id="contacto" class="container mt-5 mb-5">
             <h2 class="section-title text-center">Contacto</h2>
             <p class="text-center">¿Tienes preguntas o sugerencias? ¡Contáctanos!</p>
@@ -418,8 +413,13 @@
 
 
         </script>
-        
-        <!-- Footer -->
+
+
+
+
+
+
+    <!-- Footer -->
 <footer class="text-center text-lg-start bg-dark text-white mt-5">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center p-4 border-bottom">
@@ -497,25 +497,35 @@
 </footer>
 <!-- Footer -->
 
-<!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-        
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
-        <!-- Bootstrap JS y dependencias -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- SweetAlert2 JS -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-<!-- v2 bot-->
+    <!-- JavaScript para el colapso del menú -->
+    <script>
+        // Detecta los clics en los elementos de navegación y colapsa el menú
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                // Verifica si el menú está abierto y, si es así, colapsa el menú
+                if (document.querySelector('.navbar-collapse').classList.contains('show')) {
+                    document.querySelector('.navbar-toggler').click();
+                }
+            });
+        });
+    </script>
+    
+    
+    <!-- v2 bot-->
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/3c80ec73-465f-4ec3-8502-f31a16d28d87/webchat/config.js" defer></script>
 
         
     </main>
+    
 </body>
 
 </html>
