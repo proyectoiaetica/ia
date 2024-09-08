@@ -141,39 +141,52 @@
     <div id="notification-bubble" class="notification-bubble animate-bubble">
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://proyectoiaetica.github.io/ia/">AI Ethica</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#recursos">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#noticias">Noticias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#faq">Preguntas Frecuentes</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#discusion">Discusion</a>
-                    </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#contacto">Contacto</a>
-                    </li>
-
-                </ul>
-            </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="https://proyectoiaetica.github.io/ia/">AI Ethica</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#recursos">Recursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#noticias">Noticias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#faq">Preguntas Frecuentes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#discusion">Discusión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-url="https://proyectoiaetica.github.io/ia/#contacto">Contacto</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const url = this.getAttribute('data-url'); // Get URL from data-url attribute
+            window.location.assign(url); // Redirect to the URL and reload the page
+        });
+    });
+</script>
+
+
+
+
 
     <!-- Contenido principal -->
     <main role="main">
