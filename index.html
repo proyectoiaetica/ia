@@ -158,9 +158,6 @@
                         <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#recursos">Recursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#noticias">Noticias</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="https://proyectoiaetica.github.io/ia/#faq">Preguntas Frecuentes</a>
                     </li>
                      <li class="nav-item">
@@ -246,52 +243,6 @@
                 recursosContainer.innerHTML += recursoHTML;
             });
         </script>
-
-<!-- Sección de Noticias -->
-<section id="noticias" class="container mt-5">
-    <h2 class="section-title text-center">Noticias 📰</h2>
-    <div class="row" id="noticias-container"></div>
-</section>
-
-<script>
-    const noticias = [
-        {
-            titulo: "Inteligencia Artificial en la Educación Superior: Un Modelo Predictivo para el Rendimiento Académico 🎓",
-            descripcion: "Un estudio en la Universidad de Guayaquil ha diseñado un modelo predictivo basado en IA para anticipar el rendimiento académico de los estudiantes. Los resultados muestran que factores como la edad, el tiempo de estudio y el uso de herramientas de IA tienen un impacto significativo y directo en el rendimiento de los estudiantes.",
-            doi: "https://doi.org/10.3390/educsci13111109"
-        },
-        {
-            titulo: "Inteligencia Artificial Generativa: Implicaciones para la Educación Superior 🧠",
-            descripcion: "La Inteligencia Artificial Generativa (GAI) está transformando la educación superior, ofreciendo tanto desafíos como oportunidades. Este artículo analiza el impacto de la GAI en el trabajo académico, con un enfoque especial en los estudiantes internacionales, y discute la importancia de la alfabetización en IA y las consideraciones éticas en su adopción.",
-            doi: "https://doi.org/10.3390/educsci13111109"
-        },
-        {
-            titulo: "Integridad Académica a Nivel Doctoral: Influencias Culturales y el Fenómeno del Impostor 📜",
-            descripcion: "Este artículo revisa cómo la integridad académica, más que una norma a imponer, debe ser vista como una habilidad a desarrollar. Se propone que la academia fomente un entorno donde se apoye el desarrollo de habilidades de integridad académica, especialmente entre estudiantes de doctorado que experimentan el fenómeno del impostor.",
-            doi: "https://doi.org/10.1007/s40979-021-00074-w"
-        }
-    ];
-
-    const noticiasContainer = document.getElementById('noticias-container');
-
-    noticias.forEach(noticia => {
-        const noticiaHTML = `
-            <div class="col-md-4 mb-4">
-                <div class="feature-box">
-                    <h3>
-                        <a href="${noticia.doi}" class="text-decoration-none text-dark">${noticia.titulo}</a>
-                    </h3>
-                    <p>${noticia.descripcion}</p>
-                    <p><strong>DOI:</strong> <a href="${noticia.doi}">${noticia.doi}</a></p>
-                    <a href="${noticia.doi}" class="btn btn-primary">Leer más 📖</a>
-                </div>
-            </div>
-        `;
-        noticiasContainer.innerHTML += noticiaHTML;
-    });
-</script>
-
-<!-- Fin sección de Noticias -->
 
 <!-- Sección de Preguntas Frecuentes -->
 <section id="faq" class="container mt-5 mb-5">
@@ -468,7 +419,6 @@
                     </h6>
                     <p><a href="#!" class="text-reset">Guías de Uso Responsable</a></p>
                     <p><a href="#!" class="text-reset">Biblioteca de IA</a></p>
-                    <p><a href="#!" class="text-reset">Últimas Noticias</a></p>
                 </div>
                 <!-- Grid column -->
 
